@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Enter pokemon name:<input type="text" id="pokemonName" />
+    <button id="get">GET Image</button><br />
+    <img id="photo" src="" style="display: none" height="100px" width="100px" />
+
+    <script>
+      let pokemonName = document
+        .getElementById("pokemonName")
+        .value.toLowerCase();
+      async function getpokemon() {
+        try {
+          let response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
+          );
+          if (!response.ok) {
+            throw new Error("could not fetch resource");
+          }
+          let data = await response.json();
+          let pokemonimage = data.sprites.front_default;
+
+          let img = document.getElementById("photo");
+          img.src = pokemonimage;
+          img.style.display = "block";
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      let clickbtn = document.getElementById("get");
+      clickbtn.addEventListener("click", () => {
+        getpokemon();
+        // pokemonName.value = " ";
+      });
+    </script>
+  </body>
+</html>

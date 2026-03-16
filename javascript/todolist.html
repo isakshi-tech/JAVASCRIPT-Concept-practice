@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+ 
+  </style>
+
+  <body>
+    <div class="info">
+    Enter task: <input id="task" type="text" value="" />
+    <button id="add">add</button>
+
+    <ul id="list">
+
+    </ul>
+</body>
+
+  <script>
+   
+    document.getElementById("add").addEventListener('click',()=>{
+    let task=document.createElement("li")
+    let input=document.getElementById("task")
+    task.innerHTML=input.value
+    task.style.marginTop="10px"
+    let list=document.getElementById("list")
+    // task.classList.add("list")
+    list.append(task)
+    input.value =" "
+    let delbutton=document.createElement("button")
+    delbutton.innerHTML= "delete"
+    delbutton.style.marginLeft="10px"
+    task.append(delbutton)
+    let editbutton=document.createElement("button")
+    editbutton.innerHTML= "edit"
+    editbutton.style.marginLeft="10px"
+    task.append(editbutton)
+    
+
+    delbutton.addEventListener('click',(e)=>{
+       console.log(e)
+       task.remove();
+      //  delbutton.remove();
+      //  editbutton.remove();
+      })
+
+    editbutton.addEventListener('click',(e)=>{
+        console.log(e)
+        let edit=prompt("enter the edited task")
+        if(edit!==null){
+              task.firstChild.textContent = edit
+        }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  
+
+//<!-- //git and github
+//git>commands
+// version control 
+
+
+//branch > multiple branch
+//release > backup branch
+//epic
+
+
+//jira
+//scrum master
+//<!-- 
+//push> git    ----> .gitfile  ---->git __init__ 
+
+//.txt .html   git add >> .txt
+
+//staging area...  //git commit -m "
+// git origin  branch"
+
+//pull//clone
+
+
+
+//download git for windows
+//gitlens --> 
+    
+
+ 
+    
+
+
+})
+
+
+  </script>
+</html>
+
+
+
+
+
+
+
+
